@@ -1,37 +1,31 @@
-import { Reducer } from 'redux';
-import {
-    PostActions,
-    PostActionTypes,
-  } from '../actions/PostActions';
-
-
-export interface IPost {
-    userId: number,
-    id: number,
-    title: string,
-    body: string
+import {POSTS_FAIL, POSTS_SUCCESS, POSTS_LOADING, PostsType, PostsDispatchTypes} from '../actions/postActionTypes';
+interface DefaultStateI {
+    loading: boolean,
+    posts?: PostsType
 }
 
-export interface IPostState {
-    readonly posts: IPost[];
+const defaultState: DefaultStateI = {
+loading: false
 }
 
-const initialPostState: IPostState = {
-    posts: [],
-}
-
-export const postReducer: Reducer<IPostState, PostActions> = (
-    state = initialPostState,
-    action
-  ) => {
-    switch (action.type) {
-      case PostActionTypes.GET_ALL: {
-        return {
-          ...state,
-          posts: action.posts,
-        };
+const postReducer = (state: DefaultStateI = defaultState, action: PostsDispatchTypes) : DefaultStateI => {
+  switch (action.type) {
+    case POSTS_FAIL:
+      return {
+        loading: false,
       }
-      default:
-        return state;
-    }
-  };
+      case POSTS_LOADING:
+        return {
+          loading: true
+        }
+        case POSTS_SUCCESS:
+          return {
+            loading: false,
+            posts: action.payload
+          }
+          default: 
+          return state
+  }
+}
+
+export default postReducer;
