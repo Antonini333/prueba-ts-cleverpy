@@ -1,20 +1,20 @@
-import React, {useState} from "react";
+import axios, { AxiosResponse } from "axios";
+import React, {useEffect, useState} from "react";
+
+interface IPost {
+  userId: number,
+  id: number,
+  title: string,
+  body: string
+}
 
 const AllPosts: React.FC = () => {
-  
-  const [posts, setPosts]= useState([])
-  let callAPI = fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => response.json())
-  .then(data => setPosts(data))
-  .catch(error => console.log(error));
 
-  console.log(posts)
-  
-  
+
   return (
     <div>
-      <h1>{posts?.map(post => 
-        <div>{post.title}</div>)}</h1>
+      <div>
+      </div>
     </div>
     
   )
