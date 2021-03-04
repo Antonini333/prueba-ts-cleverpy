@@ -1,12 +1,14 @@
 export const POSTS_LOADING = "POSTS_LOADING"
 export const POSTS_SUCCESS = "POSTS_SUCCESS"
 export const POSTS_FAIL = "POSTS_FAIL"
+export const DELETE_POST = "DELETE_POST"
 
 export type PostsType = [{
     userId: number,
     id: number,
     title: string,
-    body: string
+    body: string,
+    erased?: boolean
 }]
 
 interface postsLoading {
@@ -22,4 +24,8 @@ interface postsSuccess {
     payload: PostsType
 }
 
-export type PostsDispatchTypes = postsLoading | postsFail | postsSuccess
+interface deletePost {
+    type: typeof DELETE_POST
+}
+
+export type PostsDispatchTypes = postsLoading | postsFail | postsSuccess | deletePost

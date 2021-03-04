@@ -1,4 +1,4 @@
-import {POSTS_FAIL, POSTS_SUCCESS, POSTS_LOADING, PostsType, PostsDispatchTypes} from '../actions/postActionTypes';
+import {POSTS_FAIL, POSTS_SUCCESS, POSTS_LOADING, DELETE_POST, PostsType, PostsDispatchTypes} from '../actions/postActionTypes';
 interface DefaultStateI {
     loading: boolean,
     posts?: PostsType
@@ -23,6 +23,10 @@ const postReducer = (state: DefaultStateI = defaultState, action: PostsDispatchT
             loading: false,
             posts: action.payload
           }
+          case DELETE_POST:
+            return {
+              loading: true
+            }
           default: 
           return state
   }
