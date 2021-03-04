@@ -1,14 +1,19 @@
+
+  $main-gradient: linear-gradient( #c3c3c9 ,#787681d8);
+  $secondary-gradient:linear-gradient( #5e5e6e ,#222225d8);
+  $main-grey: #acacb9ea;
+  $secondary-grey: #24212177;
+  $main-yellow: #ffc914;
+  $secondary-yellow: #fff600;
+  $main-blue: #9bb1ff;
+
+
 .userProfile{
     display: flex;
     flex-direction: column;
-    background-position: center;
-    color: white;
     min-height: 90vh;
     width: 100%;
-    background-size: cover !important;
-
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.9)));
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    background: $main-gradient;
   }
   
   .userContainer {
@@ -16,6 +21,24 @@
     justify-content: flex-start;
     align-items: center;
     flex-flow: row wrap;
+    width:100%;
+
+    .userName{
+      padding-bottom: 1%; 
+    }
+
+    .backButtonBox{
+      display:flex;
+justify-content: flex-end;
+width:100%;
+    }
+
+    .backButton{
+      position: fixed;
+      margin-top: 2.2em;
+      margin-right: 2em;
+      background-color: rgba(206, 20, 20, 0.555);
+    }
     
   
     .infoUser {
@@ -24,7 +47,7 @@
         margin: 0.7em 1em;
         height: 35vh;
         width: 100vw;
-        background-color: #002382bb;
+        background-color:$secondary-grey;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -38,7 +61,7 @@
       padding: 1% 20% 1% 20%;
       border-radius: 0.1em;
       overflow: auto;
-      background-color: #99e9f053;
+      background-color: $main-grey;
       text-align: center;
       display: flex;
       flex-direction: column;

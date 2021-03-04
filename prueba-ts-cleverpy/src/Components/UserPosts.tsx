@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import 'react-animated-slider/build/horizontal.css'
 import '../slider-animation.css';
 import './UserList.scss'
@@ -16,20 +16,21 @@ const UserPosts: React.FC = () => {
   return (
     <div className="userProfile">
       <div className="userContainer">
+        <div className="backButtonBox">
+      <button className="backButton" onClick={() => {history.push("/userlist")}}>Go Back</button></div>
       {selectedPosts?.map(post => 
         <div key={post.id} className="infoUser">
-    
+        <div className="userName"><strong>User{post.userId} said:</strong></div>
         <div className='inside'><strong>{post.title}</strong></div>
         <div className='inside'>{post.body}</div>
         <div className="buttonbox">
         <button onClick={() => {deletePost(post.id)}}>
-              X
+              Delete Post
             </button>
             </div>
       </div>
         )}
     </div>
-    <button onClick={() => {history.push("/userlist")}}>PARA ATRÁS</button>
     </div>
     
   );

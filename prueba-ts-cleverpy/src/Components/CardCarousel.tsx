@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import { getPosts, deletePost } from '../Redux/actions/postActions';
+import { getPosts } from '../Redux/actions/postActions';
 import {rootStore} from '../Redux/Store'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
