@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios'
 import {useSelector, useDispatch} from 'react-redux';
 import { getUsers } from '../Redux/actions/userActions'
 import {rootStore} from '../Redux/Store'
-import axios from 'axios'
+import { DefaultStateI } from '../Redux/reducers/userReducer';
 import './UserList.scss'
 import { useHistory } from 'react-router';
 
@@ -11,16 +12,16 @@ import { useHistory } from 'react-router';
 const UserList: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const usersState = useSelector((state: rootStore) => state.users)
+  const usersState: DefaultStateI = useSelector((state: rootStore) => state.users)
 
   useEffect(() => {
    dispatch(getUsers())
   }, [dispatch])
   
 
-  const chooseUser = async (id: number) =>{
+  const chooseUser = async (id: number): Promise<void> =>{
     await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
-    .then((res) =>{
+    .then((res: AxiosResponse) =>{
        localStorage.setItem('userPosts', JSON.stringify(res.data))
        setTimeout(() => {
         history.push("/userposts")

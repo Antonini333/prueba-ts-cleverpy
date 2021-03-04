@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import 'react-animated-slider/build/horizontal.css'
 import '../slider-animation.css';
 import './UserList.scss'
-import { useHistory } from "react-router";
+import { PostsType } from "../Redux/actions/postActionTypes";
+
 
 const UserPosts: React.FC = () => {
 
   const history = useHistory();
-  const [selectedPosts, setSelectedPosts]= useState(JSON.parse(localStorage.getItem('userPosts') || '{}'));
+  const localPosts: Storage = JSON.parse(localStorage.getItem('userPosts') || '{}')
+  const [selectedPosts, setSelectedPosts]= useState(localPosts);
 
-  const deletePost = async (id) => {
+  const deletePost = async (id: number): Promise<void> => {
     setSelectedPosts(selectedPosts.filter(post => post.id !== id)); 
    };
+
   
   return (
     <div className="userProfile">

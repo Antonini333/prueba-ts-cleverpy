@@ -1,6 +1,6 @@
 import {USERS_FAIL, USERS_SUCCESS, USERS_LOADING, UsersType, UsersDispatchTypes} from '../actions/userActionTypes';
 
-interface DefaultStateI {
+export interface DefaultStateI {
     loading: boolean,
     users?: UsersType
 }

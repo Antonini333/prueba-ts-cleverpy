@@ -1,5 +1,5 @@
 import {POSTS_FAIL, POSTS_SUCCESS, POSTS_LOADING, DELETE_POST, PostsType, PostsDispatchTypes} from '../actions/postActionTypes';
-interface DefaultStateI {
+export interface DefaultStateI {
     loading: boolean,
     posts?: PostsType
 }
@@ -7,6 +7,7 @@ interface DefaultStateI {
 const defaultState: DefaultStateI = {
 loading: false
 }
+
 
 const postReducer = (state: DefaultStateI = defaultState, action: PostsDispatchTypes) : DefaultStateI => {
   switch (action.type) {

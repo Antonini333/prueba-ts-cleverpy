@@ -1,27 +1,29 @@
 import React, { useEffect } from "react";
+import axios, { AxiosResponse } from 'axios'
+import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
 import { getPosts } from '../Redux/actions/postActions';
+import { DefaultStateI } from '../Redux/reducers/postReducer';
 import {rootStore} from '../Redux/Store'
-import {useHistory} from 'react-router-dom'
-import axios from 'axios'
 import Slider from 'react-animated-slider'
 import 'react-animated-slider/build/horizontal.css'
 import '../slider-animation.css';
 import '../styles.css'
 
 const CardCarousel: React.FC = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const cardPosts = useSelector((state: rootStore) => state.posts)
+    const dispatch= useDispatch();
+    const history = useHistory();  /* No sé como tipar estas dos */
+
+    const cardPosts: DefaultStateI = useSelector((state: rootStore) => state.posts)
     
     useEffect(() => {
         dispatch(getPosts())
       },[dispatch])
       
 
-      const chooseUser = async (id: number) =>{
+      const chooseUser = async (id: number): Promise<void> =>{
         await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
-        .then((res) =>{
+        .then((res: AxiosResponse) =>{
            localStorage.setItem('userPosts', JSON.stringify(res.data))
            setTimeout(() => {
             history.push("/userposts")
