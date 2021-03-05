@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import {Dispatch} from 'redux';
 import {PostsDispatchTypes, POSTS_LOADING, POSTS_FAIL, POSTS_SUCCESS, DELETE_POST} from './postActionTypes'
 
-export const getPosts = () => async (dispatch: Dispatch<PostsDispatchTypes>) => {
+export const getPosts = () => async (dispatch: Dispatch<PostsDispatchTypes>): Promise<void> => {
     try{
         dispatch({
             type: POSTS_LOADING
         })
 
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        const res: AxiosResponse = await axios.get('https://jsonplaceholder.typicode.com/posts')
 
         dispatch({
             type: POSTS_SUCCESS,
@@ -25,7 +25,7 @@ export const getPosts = () => async (dispatch: Dispatch<PostsDispatchTypes>) => 
 
 }
 
-export const deletePost = (id: number) => async (dispatch: Dispatch<PostsDispatchTypes>) => {
+export const deletePost = (id: number) => async (dispatch: Dispatch<PostsDispatchTypes>): Promise<void> => {
     
     try{
         await axios.delete('https://jsonplaceholder.typicode.com/posts/' + id)
@@ -33,7 +33,7 @@ export const deletePost = (id: number) => async (dispatch: Dispatch<PostsDispatc
             type: DELETE_POST
             
         })
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts/')
+        const res: AxiosResponse = await axios.get('https://jsonplaceholder.typicode.com/posts/')
         dispatch({
             type: POSTS_SUCCESS,
             payload: res.data

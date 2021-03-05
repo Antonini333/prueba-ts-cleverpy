@@ -10,7 +10,7 @@ const UserPosts: React.FC = () => {
 
   const history = useHistory();
   const localPosts: Storage = JSON.parse(localStorage.getItem('userPosts') || '{}')
-  const [selectedPosts, setSelectedPosts]= useState(localPosts);
+  const [selectedPosts, setSelectedPosts]= useState<Storage>(localPosts);
 
   const deletePost = async (id: number): Promise<void> => {
     setSelectedPosts(selectedPosts.filter(post => post.id !== id)); 
