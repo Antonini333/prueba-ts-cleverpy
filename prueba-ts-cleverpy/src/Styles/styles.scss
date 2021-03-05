@@ -1,14 +1,14 @@
 
   $main-gradient: linear-gradient( #c3c3c9 ,#787681d8);
   $secondary-gradient:linear-gradient( #5e5e6e ,#222225d8);
-  $main-grey: #acacb9ea;
-  $secondary-grey: #24212177;
+  $main-grey: #858591ea;
+  $secondary-grey: #0c0a0aab;
   $main-yellow: #ffc914;
   $secondary-yellow: #fff600;
   $main-blue: #9bb1ff;
 
 
-.userProfile{
+.main_container{
     display: flex;
     flex-direction: column;
     min-height: 90vh;
@@ -16,24 +16,25 @@
     background: $main-gradient;
   }
   
-  .userContainer {
+  .main_container_wrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-flow: row wrap;
     width:100%;
 
-    .userName{
+    .card__name{
       padding-bottom: 1%; 
     }
 
-    .backButtonBox{
+    .back_button__box{
       display:flex;
 justify-content: flex-end;
 width:100%;
     }
 
-    .backButton{
+    
+    .back_button{
       position: fixed;
       margin-top: 2.2em;
       margin-right: 2em;
@@ -41,13 +42,14 @@ width:100%;
     }
     
   
-    .infoUser {
+    .card {
         padding: 2vh;
         border-radius: 1em;
         margin: 0.7em 1em;
         height: 35vh;
         width: 100vw;
         background-color:$secondary-grey;
+        border: 0.1em solid black;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -55,7 +57,7 @@ width:100%;
         
     }
 
-    .inside{
+    .card__info {
       padding: 2vh;
       height: 50%;
       padding: 1% 20% 1% 20%;
@@ -68,11 +70,48 @@ width:100%;
       vertical-align: left;
       overflow: hidden;
       display: inline-block;
+      color:  #ffffff;
+      font-size: 110%;
+    }
 
+    .card__info__title{ 
+      text-shadow: -2px 3px 1px rgba(150, 150, 150, 0.72);
+      padding: 2vh;
+      font-size:120%;
+      height: 50%;
+      padding: 1% 20% 1% 20%;
+      border-radius: 0.1em;
+      margin-bottom: -5%;
+      overflow: auto;
+      background-color: $main-grey;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      vertical-align: left;
+      overflow: hidden;
+      display: inline-block;
       color:  #000000;
+      text-transform: uppercase;
+    }
+
+    .card__info__name{
+      padding: 2vh;
+      height: 50%;
+      padding: 1% 20% 1% 20%;
+      border-radius: 0.1em;
+      overflow: auto;
+      background-color: $main-grey;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      vertical-align: left;
+      overflow: hidden;
+      display: inline-block;
+      color:  #000000;
+      font-size: 110%;
     }
   
-    .buttonbox{
+    .button_box{
       padding-top: 0.5em;
     }
   

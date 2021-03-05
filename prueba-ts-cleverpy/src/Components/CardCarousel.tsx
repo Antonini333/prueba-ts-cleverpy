@@ -7,14 +7,14 @@ import { DefaultStateI } from '../Redux/reducers/postReducer';
 import {rootStore} from '../Redux/Store'
 import Slider from 'react-animated-slider'
 import 'react-animated-slider/build/horizontal.css'
-import '../slider-animation.css';
-import '../styles.css'
+import '../Styles/slider-animation.css';
+import '../Styles/styles.css'
 
 const CardCarousel: React.FC = () => {
     const dispatch= useDispatch();
     const history = useHistory();  /* No sé como tipar estas dos */
 
-    const cardPosts: DefaultStateI = useSelector((state: rootStore) => state.posts)
+    const apiPosts: DefaultStateI = useSelector((state: rootStore) => state.posts)
     
     useEffect(() => {
         dispatch(getPosts())
@@ -27,7 +27,7 @@ const CardCarousel: React.FC = () => {
            localStorage.setItem('userPosts', JSON.stringify(res.data))
            setTimeout(() => {
             history.push("/userposts")
-          }, 1000);
+          }, 500);
         }).catch((error) =>{
           console.log(error);
         })
@@ -40,15 +40,14 @@ const CardCarousel: React.FC = () => {
 			<h1>Check out the latest posts!</h1>
 		</div>
       <Slider className="slider-wrapper">
-      {cardPosts.posts?.map(post =>
+      {apiPosts.posts?.map(post =>
       <div 
       key={post.id} 
-      className="slider-content"
-        	style={{ background: `url('') no-repeat center center` }}>
+      className="slider-content">
         <div className="inner">
     <h2>{post.title}</h2>
     <p>{post.body}</p>
-    <button onClick={() => {chooseUser(post.userId)}}>More posts from this writer</button>
+    <button onClick={() => {chooseUser(post.userId)}}>MORE POSTS FROM THIS AUTHOR</button>
     </div>
     <section>
     <img src="https://image.flaticon.com/icons/png/512/21/21294.png" alt="Your face here" /> <span>

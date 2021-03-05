@@ -22,7 +22,7 @@ header {
   left: 0;
   width: 100vw;
   height: 75px;
-  background: #000000;
+  background: var(--main-yellow);
   z-index: 10;
 }
 
@@ -30,7 +30,7 @@ header section {
   max-width: 100%;
   margin: auto;
   padding: 25px 25px 25px 25px;
-  background: #FFD800;
+  background: var(--main-yellow);
   display:flex;
   justify-content: space-around;
   align-items: center;
@@ -67,9 +67,9 @@ button {
   border: none;
   background: var(--main-yellow);
   border-radius: 30px;
-  text-transform: uppercase;
   box-sizing: border-box;
   padding: 15px 40px;
+  margin-top: 1%;
   font-weight: 400;
   font-size: 13px;
   cursor: cursor;
@@ -180,21 +180,25 @@ button:hover {
           margin: 15px;
 }
 
-.slider-content .inner h1 {
+.slider-content .inner h2 {
   font-weight: 900;
   margin: 0 auto;
   max-width: 840px;
-  color: #FFFFFF;
-  font-size: 64px;
+  color: #070606;
+  font-size: 32px;
   line-height: 1;
+  margin-top: -6%;
+  text-transform: uppercase;
+  text-shadow: -2px 3px 1px rgba(150, 150, 150, 0.72);
 }
 
 .slider-content .inner p {
-  color: #FFFFFF;
-  font-size: 14px;
+  color: #ffffff;
+  font-size: 22px;
   line-height: 1.5;
   margin: 20px auto 30px;
   max-width: 640px;
+  text-shadow: -2px 3px 1px rgba(150, 150, 150, 0.72);
 }
 
 .slider-content section {
@@ -255,21 +259,6 @@ button:hover {
   }
 }
 
-.list {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-@media all and (min-width: 40em) {
-  .list-item {
-    width: 50%;
-  }
-}
-@media all and (min-width: 60em) {
-  .list-item {
-    width: 33.33%;
-  }
-}
 
 
 
