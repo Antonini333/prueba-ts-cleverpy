@@ -6,9 +6,10 @@ const Header: React.FC = () => {
   return (
     <header>
       <section>
-        <div><Link to="/">Home</Link></div>
+
         <div><Link to="/allposts">All Posts</Link></div>
         <div><Link to="/userlist">Authors</Link></div>
+        <div><Link to="/">Log Out</Link></div>
 
 
       </section>

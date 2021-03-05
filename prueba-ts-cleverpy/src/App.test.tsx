@@ -1,19 +1,58 @@
-import React from "react";
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import Adapter from "enzyme-adapter-react-16";
-import { shallow, configure } from 'enzyme';
+import Login from './Components/Login';
+import UserList from './Components/UserList';
+import * as ReactDOM from 'react-dom';
+import React from 'react';
 
-configure({ adapter: new Adapter() });
+describe('Login component tests', () => {
 
-describe("App", () => {
- it("renders correctly", () => {
-   shallow(<App />);
- });
-});
+    let container: HTMLDivElement
 
-/* test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-}); */
+    beforeEach(() => {
+container = document.createElement('div');
+document.body.appendChild(container);
+ReactDOM.render(<Login/>, container)
+    })
+
+    afterEach(() => {
+        document.body.removeChild(container);
+        container.remove();
+    })
+
+    it('Renders correctly initial document', () => {
+
+        const inputs = container.querySelectorAll('input');
+        expect(inputs).toHaveLength(2);
+        expect(inputs[0].name).toBe('email')
+        expect(inputs[1].name).toBe('password')
+       
+        
+
+
+    })
+})
+
+describe('UserList component tests', () => {
+
+    let container: HTMLDivElement
+
+    beforeEach(() => {
+container = document.createElement('div');
+document.body.appendChild(container);
+ReactDOM.render(<UserList/>, container)
+    })
+
+    afterEach(() => {
+        document.body.removeChild(container);
+        container.remove();
+    })
+
+    it('Renders correctly initial document', () => {
+
+        const cards = container.querySelectorAll(".card");
+        expect(cards).toHaveLength(10);
+        
+        
+
+
+    })
+})

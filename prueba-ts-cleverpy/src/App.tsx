@@ -6,6 +6,7 @@ import UserPosts from './Components/UserPosts'
 import Login from './Components/Login'
 
 function App() {
+
   return (
     <Router>
       <Route exact path="/">
@@ -23,6 +24,7 @@ function App() {
       </Route>
 
     </Router>
+
   );
 }
 

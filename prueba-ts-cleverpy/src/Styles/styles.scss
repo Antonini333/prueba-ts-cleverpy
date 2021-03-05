@@ -19,7 +19,7 @@ body{
   flex-direction: column;
   min-height: 90vh;
   width: 100%;
-  background-image: url("https://www.seekpng.com/png/full/98-985572_black-to-nothing-transparent-gradient-grey-gradient-background.png");
+  background-image: url("https://www.publicdomainpictures.net/pictures/130000/velka/grey-gradient-background-1439642315lMp.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -30,6 +30,7 @@ body{
   align-items: center;
   flex-flow: row wrap;
   width: 100%;
+  
 
   .card__name {
     padding-bottom: 1%;
@@ -134,18 +135,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    background-image: url("https://www.seekpng.com/png/full/98-985572_black-to-nothing-transparent-gradient-grey-gradient-background.png");
+    flex-direction: column;
+    background-image: url("https://www.publicdomainpictures.net/pictures/130000/velka/grey-gradient-background-1439642315lMp.jpg");
     min-height: 88vh;
     width: 100%;
     background-size: cover;
     background-position: center;
     
 }
+
+
 .card_login {
     display:flex;
     flex-direction: column;
-    place-items: center;
+    justify-content: center;
     width: 50%;
     height: 80%;
     size: medium;
@@ -156,24 +159,31 @@ body{
 }
 
 .card_login__title{
-    display:flex;
-    flex-direction: column;
-    place-items: center;
+  
     height: 32%;
-    margin: 2% 1% 5% 2%;
     padding: 3%;
     line-height: 2em;
     color: rgb(0, 0, 0);
+    text-align: center;
+}
+.card_login__title h2 {
+
+  color: black;
+  margin-top: 4%;
+
 }
 
 .card_login__title h3 {
+
   color: rgb(219, 212, 212);
-  margin-top: 5%
+  margin-top: 3%;
+  place-items: center;
 }
+
 .card_login__title h4 {
   color: rgb(255, 225, 0);
-  margin-top: 5%;
-  margin-bottom: -3%;
+  margin-top: 3%;
+  margin-bottom: 4%;
 }
 
 

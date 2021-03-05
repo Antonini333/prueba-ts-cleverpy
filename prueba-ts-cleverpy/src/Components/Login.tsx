@@ -5,16 +5,19 @@ import { userLogin } from '../Redux/actions/userActions';
 import '../Styles/styles.scss';
 
 const Login: React.FC = () => {
-    const dispatch = useDispatch();
+/*     const dispatch = useDispatch(); */
     const history = useHistory();
 
-    const clickLogin = async (event) => {
+    const clickLogin = async (event/*tipar */): Promise<void> => {
         event.preventDefault();
-        const body = {
+        const body: {
+            email: string,
+            password: string
+        } = {
             email: event.target.email.value,
             password: event.target.password.value
         }
-        dispatch(userLogin(body));
+/*         dispatch(userLogin(body)) */;
         history.push("/allposts")
 
 
@@ -22,7 +25,7 @@ const Login: React.FC = () => {
 
     return (
         <div className="main_login_container">
-            <div></div>
+
             <div className="card_login">
                 <div className="card_login__title"><h2>Welcome to my app</h2>
                     <div><h3> Technical test for Cleverpy</h3></div>
@@ -35,7 +38,8 @@ const Login: React.FC = () => {
                 </form>
             </div>
             <div></div>
-        </div>
+            </div>
+        
 
     )
 }
