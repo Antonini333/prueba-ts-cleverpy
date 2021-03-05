@@ -1,9 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
-import {Dispatch} from 'redux';
-import {PostsDispatchTypes, POSTS_LOADING, POSTS_FAIL, POSTS_SUCCESS, DELETE_POST} from './postActionTypes'
+import { Dispatch } from 'redux';
+import { PostsDispatchTypes, POSTS_LOADING, POSTS_FAIL, POSTS_SUCCESS, DELETE_POST } from './postActionTypes'
 
 export const getPosts = () => async (dispatch: Dispatch<PostsDispatchTypes>): Promise<void> => {
-    try{
+
+    try {
         dispatch({
             type: POSTS_LOADING
         })
@@ -15,23 +16,20 @@ export const getPosts = () => async (dispatch: Dispatch<PostsDispatchTypes>): Pr
             payload: res.data
         })
 
-    } catch(error) {
+    } catch (error) {
         dispatch({
             type: POSTS_FAIL
         })
-
-
     }
-
 }
 
 export const deletePost = (id: number) => async (dispatch: Dispatch<PostsDispatchTypes>): Promise<void> => {
-    
-    try{
+
+    try {
         await axios.delete('https://jsonplaceholder.typicode.com/posts/' + id)
         dispatch({
             type: DELETE_POST
-            
+
         })
         const res: AxiosResponse = await axios.get('https://jsonplaceholder.typicode.com/posts/')
         dispatch({
@@ -39,7 +37,7 @@ export const deletePost = (id: number) => async (dispatch: Dispatch<PostsDispatc
             payload: res.data
         })
 
-    } catch(error) {
+    } catch (error) {
         dispatch({
             type: POSTS_FAIL
         })

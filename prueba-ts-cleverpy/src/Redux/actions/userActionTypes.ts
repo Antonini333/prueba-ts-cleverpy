@@ -1,6 +1,7 @@
 export const USERS_LOADING = "USERS_LOADING"
 export const USERS_SUCCESS = "USERS_SUCCESS"
 export const USERS_FAIL = "USERS_FAIL"
+export const USER_LOGIN = "USER_LOGIN"
 
 export type UsersType = [{
     id: number,
@@ -8,7 +9,9 @@ export type UsersType = [{
     website: string,
     address: {
         city: string
-    }
+    },
+    email?: string,
+    password?: string
 }]
 
 interface usersLoading {
@@ -24,4 +27,9 @@ interface usersSuccess {
     payload: UsersType
 }
 
-export type UsersDispatchTypes = usersLoading | usersFail | usersSuccess
+interface userLogin {
+    type: typeof USER_LOGIN,
+    payload: UsersType
+}
+
+export type UsersDispatchTypes = usersLoading | usersFail | usersSuccess | userLogin

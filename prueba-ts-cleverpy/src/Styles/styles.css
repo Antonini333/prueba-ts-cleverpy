@@ -31,7 +31,7 @@ header section {
   margin: auto;
   padding: 25px 25px 25px 25px;
   background: var(--main-yellow);
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
@@ -39,7 +39,7 @@ header section {
 @media (max-width: 1515px) {
   header section {
     max-width: 100%;
-  } 
+  }
 }
 
 header section .logo {
@@ -53,17 +53,18 @@ header section a {
 
 * {
   outline: none;
+  margin: 0;
 }
 
 button {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-          filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
   -webkit-transition: all .5s ease;
-         filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
   -webkit-transition: all .5s ease;
-          transition: all .5s ease;
+  transition: all .5s ease;
   border: none;
   background: var(--main-yellow);
   border-radius: 30px;
@@ -79,12 +80,13 @@ button:hover {
   color: #FFFFFF;
   background: var(--main-black);
   -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-          filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 }
 
 .wrapper {
   max-width: 1335px;
   height: 18vh;
+  width: 100%;
   box-sizing: border-box;
   padding: 10px 20px;
   margin: auto;
@@ -110,40 +112,42 @@ button:hover {
 .slide {
   height: 70vh;
   background-size: cover !important;
-  
+
 }
 
 .slide::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--main-gradient);
-    bottom: 0;
-    left: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--main-gradient);
+  bottom: 0;
+  left: 0;
 }
 
-.previousButton, .nextButton {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		z-index: 10;
-		background: url('https://www.pngrepo.com/png/75340/512/right-arrow-angle-in-circular-filled-button.png') no-repeat center center / 16px;
-		width: 64px;
-		height: 64px;
-		text-indent: -9999px;
-		cursor: pointer;
+.previousButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: url('https://www.pngrepo.com/png/75340/512/right-arrow-angle-in-circular-filled-button.png') no-repeat center center / 16px;
+  width: 64px;
+  height: 64px;
+  text-indent: -9999px;
+  cursor: pointer;
 }
 
-.previousButton:hover, .nextButton:hover {
+.previousButton:hover,
+.nextButton:hover {
   background: url('https://www.pngrepo.com/png/75340/512/right-arrow-angle-in-circular-filled-button.png') no-repeat center center / 16px;
 }
 
 .previousButton {
   left: 0;
   -webkit-transform: rotate(180deg) translateY(calc(50% + 0px));
-          transform: rotate(180deg) translateY(calc(50% + 0px));
+  transform: rotate(180deg) translateY(calc(50% + 0px));
 }
 
 .previousButton:hover {
@@ -170,14 +174,14 @@ button:hover {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-          
+  transform: translate(-50%, -50%);
+
 }
 
-.slider-content .inner button{
+.slider-content .inner button {
   -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-          margin: 15px;
+  transition-delay: 0s;
+  margin: 15px;
 }
 
 .slider-content .inner h2 {
@@ -236,21 +240,25 @@ button:hover {
 }
 
 @media (max-height: 500px) {
-  .slider-wrapper, .slide {
+
+  .slider-wrapper,
+  .slide {
     height: calc(100vh - 75px);
-  }    
+  }
 }
 
 @media (max-width: 640px) {
-  .slider-wrapper, .slide {
+
+  .slider-wrapper,
+  .slide {
     height: calc(80vh - 75px);
-  }    
+  }
 }
 
 @media (max-height: 600px) {
   .slider-content .inner h1 {
     font-size: 32px;
-  }    
+  }
 }
 
 @media (max-width: 640px) {
@@ -258,8 +266,3 @@ button:hover {
     font-size: 32px;
   }
 }
-
-
-
-
-
